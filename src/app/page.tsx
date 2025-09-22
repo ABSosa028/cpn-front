@@ -233,21 +233,7 @@ export default function Home() {
                 </Link>
               </CardContent>
             </Card>
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle>Componentes Demo</CardTitle>
-                <CardDescription>
-                  Demostración de componentes UI
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/component">
-                  <Button className="w-full" variant="secondary">
-                    Ver Componentes
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+            
           </div>
         </div>
       </div>
