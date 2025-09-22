@@ -95,12 +95,12 @@ export default function ShipsReportPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto p-6 space-y-6">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-balance">Reporte - Buques</h1>
-            <p className="text-slate-400 mt-2">Dashboard Power BI para análisis de movimientos de carga de buques</p>
+            <p className="text-muted-foreground mt-2">Dashboard Power BI para análisis de movimientos de carga de buques</p>
           </div>
           <div className="flex items-center gap-4">
             <Badge variant={isConnected ? "default" : "destructive"} className="bg-emerald-600">
@@ -111,12 +111,15 @@ export default function ShipsReportPage() {
               <RefreshCw className="w-4 h-4 mr-2" />
               Actualizar
             </Button>
+            <Button asChild variant="outline">
+              <a href="/">← Volver al Home</a>
+            </Button>
           </div>
         </div>
 
-        <Card className="bg-slate-900 border-slate-800">
+        <Card className="bg-card border-border">
           <CardHeader>
-            <CardTitle className="text-slate-100 flex items-center gap-2">
+            <CardTitle className="text-foreground flex items-center gap-2">
               <Database className="w-5 h-5" />
               Preparación y Conexión de Datos de Buques
             </CardTitle>
@@ -125,61 +128,61 @@ export default function ShipsReportPage() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="text-center">
                 <div className="text-2xl font-bold text-emerald-400">Activa</div>
-                <div className="text-sm text-slate-400">Conexión BD</div>
+                <div className="text-sm text-muted-foreground">Conexión BD</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-blue-400">{lastUpdate}</div>
-                <div className="text-sm text-slate-400">Última Actualización</div>
+                <div className="text-sm text-muted-foreground">Última Actualización</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-amber-400">18 Buques</div>
-                <div className="text-sm text-slate-400">Total Activos</div>
+                <div className="text-sm text-muted-foreground">Total Activos</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-purple-400">69,200 T</div>
-                <div className="text-sm text-slate-400">Carga Total</div>
+                <div className="text-sm text-muted-foreground">Carga Total</div>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-900 border-slate-800">
+        <Card className="bg-card border-border">
           <CardHeader>
-            <CardTitle className="text-slate-100 flex items-center gap-2">
+            <CardTitle className="text-foreground flex items-center gap-2">
               <Filter className="w-5 h-5" />
               Filtros y Opciones de Segmentación
             </CardTitle>
-            <CardDescription className="text-slate-400">
+            <CardDescription className="text-muted-foreground">
               Personaliza las visualizaciones por fechas, puertos, tipos de carga y buques específicos
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Fecha Desde</label>
+                <label className="text-sm font-medium text-foreground">Fecha Desde</label>
                 <Input
                   type="date"
                   value={dateFrom}
                   onChange={(e) => setDateFrom(e.target.value)}
-                  className="bg-slate-800 border-slate-700 text-slate-100"
+                  className="bg-card border-border text-foreground"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Fecha Hasta</label>
+                <label className="text-sm font-medium text-foreground">Fecha Hasta</label>
                 <Input
                   type="date"
                   value={dateTo}
                   onChange={(e) => setDateTo(e.target.value)}
-                  className="bg-slate-800 border-slate-700 text-slate-100"
+                  className="bg-card border-border text-foreground"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Puerto</label>
+                <label className="text-sm font-medium text-foreground">Puerto</label>
                 <Select value={selectedPort} onValueChange={setSelectedPort}>
-                  <SelectTrigger className="bg-slate-800 border-slate-700 text-slate-100">
+                  <SelectTrigger className="bg-card border-border text-foreground">
                     <SelectValue placeholder="Seleccionar puerto" />
                   </SelectTrigger>
-                  <SelectContent className="bg-slate-800 border-slate-700">
+                  <SelectContent className="bg-card border-border">
                     <SelectItem value="puerto-cortes">Puerto Cortés</SelectItem>
                     <SelectItem value="puerto-castilla">Puerto Castilla</SelectItem>
                     <SelectItem value="la-ceiba">La Ceiba</SelectItem>
@@ -188,12 +191,12 @@ export default function ShipsReportPage() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Tipo de Carga</label>
+                <label className="text-sm font-medium text-foreground">Tipo de Carga</label>
                 <Select value={selectedCargoType} onValueChange={setSelectedCargoType}>
-                  <SelectTrigger className="bg-slate-800 border-slate-700 text-slate-100">
+                  <SelectTrigger className="bg-card border-border text-foreground">
                     <SelectValue placeholder="Seleccionar tipo" />
                   </SelectTrigger>
-                  <SelectContent className="bg-slate-800 border-slate-700">
+                  <SelectContent className="bg-card border-border">
                     <SelectItem value="cereales">Cereales</SelectItem>
                     <SelectItem value="contenedores">Contenedores</SelectItem>
                     <SelectItem value="minerales">Minerales</SelectItem>
@@ -202,12 +205,12 @@ export default function ShipsReportPage() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Buque Específico</label>
+                <label className="text-sm font-medium text-foreground">Buque Específico</label>
                 <Select value={selectedShip} onValueChange={setSelectedShip}>
-                  <SelectTrigger className="bg-slate-800 border-slate-700 text-slate-100">
+                  <SelectTrigger className="bg-card border-border text-foreground">
                     <SelectValue placeholder="Seleccionar buque" />
                   </SelectTrigger>
-                  <SelectContent className="bg-slate-800 border-slate-700">
+                  <SelectContent className="bg-card border-border">
                     <SelectItem value="oceanic-star">MV Oceanic Star</SelectItem>
                     <SelectItem value="caribbean-express">MV Caribbean Express</SelectItem>
                     <SelectItem value="atlantic-cargo">MV Atlantic Cargo</SelectItem>
@@ -221,9 +224,9 @@ export default function ShipsReportPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Gráfico de Barras - Cantidad de Carga por Buque */}
-          <Card className="bg-slate-900 border-slate-800">
+          <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-slate-100 flex items-center gap-2">
+              <CardTitle className="text-foreground flex items-center gap-2">
                 <BarChart3 className="w-5 h-5" />
                 Cantidad de Carga por Buque
               </CardTitle>
@@ -233,15 +236,15 @@ export default function ShipsReportPage() {
                 {cargoByShip.map((item, index) => (
                   <div key={index} className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-slate-300">{item.ship}</span>
+                      <span className="text-foreground">{item.ship}</span>
                       <div className="text-right">
-                        <div className="text-slate-100 font-medium">{item.volume.toLocaleString()} T</div>
-                        <div className="text-xs text-slate-400">
+                        <div className="text-foreground font-medium">{item.volume.toLocaleString()} T</div>
+                        <div className="text-xs text-muted-foreground">
                           {item.trips} viajes • {item.efficiency}% eficiencia
                         </div>
                       </div>
                     </div>
-                    <div className="w-full bg-slate-800 rounded-full h-3">
+                    <div className="w-full bg-card rounded-full h-3">
                       <div
                         className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-500"
                         style={{ width: `${(item.volume / 18000) * 100}%` }}
@@ -254,9 +257,9 @@ export default function ShipsReportPage() {
           </Card>
 
           {/* Gráfico de Líneas - Tráfico de Carga por Buque a lo largo del Tiempo */}
-          <Card className="bg-slate-900 border-slate-800">
+          <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-slate-100 flex items-center gap-2">
+              <CardTitle className="text-foreground flex items-center gap-2">
                 <TrendingUp className="w-5 h-5" />
                 Tráfico de Carga Temporal
               </CardTitle>
@@ -264,21 +267,21 @@ export default function ShipsReportPage() {
             <CardContent>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-slate-400">Volumen mensual y número de buques</span>
+                  <span className="text-sm text-muted-foreground">Volumen mensual y número de buques</span>
                   <Badge className="bg-emerald-600">↗ +15% vs mes anterior</Badge>
                 </div>
                 <div className="space-y-3">
                   {trafficTrend.map((item, index) => (
                     <div key={index} className="flex items-center gap-4">
-                      <div className="w-8 text-xs text-slate-400">{item.month}</div>
-                      <div className="flex-1 bg-slate-800 rounded-full h-2">
+                      <div className="w-8 text-xs text-muted-foreground">{item.month}</div>
+                      <div className="flex-1 bg-card rounded-full h-2">
                         <div
                           className="bg-gradient-to-r from-emerald-500 to-emerald-600 h-2 rounded-full transition-all duration-500"
                           style={{ width: `${(item.volume / 62000) * 100}%` }}
                         />
                       </div>
-                      <div className="text-xs text-slate-300 w-20 text-right">
-                        {item.volume.toLocaleString()} T<div className="text-slate-500">{item.ships} buques</div>
+                      <div className="text-xs text-foreground w-20 text-right">
+                        {item.volume.toLocaleString()} T<div className="text-muted-foreground">{item.ships} buques</div>
                       </div>
                     </div>
                   ))}
@@ -288,9 +291,9 @@ export default function ShipsReportPage() {
           </Card>
 
           {/* Gráfico de Pie - Distribución Porcentual por Tipos de Buques */}
-          <Card className="bg-slate-900 border-slate-800">
+          <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-slate-100 flex items-center gap-2">
+              <CardTitle className="text-foreground flex items-center gap-2">
                 <PieChart className="w-5 h-5" />
                 Distribución por Tipos de Buques
               </CardTitle>
@@ -300,15 +303,15 @@ export default function ShipsReportPage() {
                 {shipTypeDistribution.map((item, index) => (
                   <div key={index} className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-slate-300">{item.type}</span>
+                      <span className="text-foreground">{item.type}</span>
                       <div className="text-right">
-                        <div className="text-slate-100 font-medium">{item.percentage}%</div>
-                        <div className="text-xs text-slate-400">
+                        <div className="text-foreground font-medium">{item.percentage}%</div>
+                        <div className="text-xs text-muted-foreground">
                           {item.count} buques • {item.volume.toLocaleString()} T
                         </div>
                       </div>
                     </div>
-                    <div className="w-full bg-slate-800 rounded-full h-3">
+                    <div className="w-full bg-card rounded-full h-3">
                       <div
                         className={`h-3 rounded-full transition-all duration-500 ${
                           index === 0
@@ -329,9 +332,9 @@ export default function ShipsReportPage() {
           </Card>
 
           {/* Publicación y Acceso */}
-          <Card className="bg-slate-900 border-slate-800">
+          <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-slate-100 flex items-center gap-2">
+              <CardTitle className="text-foreground flex items-center gap-2">
                 <Ship className="w-5 h-5" />
                 Publicación y Acceso
               </CardTitle>
@@ -339,13 +342,13 @@ export default function ShipsReportPage() {
             <CardContent>
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-slate-800 rounded-lg">
+                  <div className="text-center p-4 bg-card rounded-lg">
                     <div className="text-2xl font-bold text-emerald-400">Publicado</div>
-                    <div className="text-sm text-slate-400">Estado del Reporte</div>
+                    <div className="text-sm text-muted-foreground">Estado del Reporte</div>
                   </div>
-                  <div className="text-center p-4 bg-slate-800 rounded-lg">
+                  <div className="text-center p-4 bg-card rounded-lg">
                     <div className="text-2xl font-bold text-blue-400">12</div>
-                    <div className="text-sm text-slate-400">Usuarios con Acceso</div>
+                    <div className="text-sm text-muted-foreground">Usuarios con Acceso</div>
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -362,10 +365,10 @@ export default function ShipsReportPage() {
           </Card>
         </div>
 
-        <Card className="bg-slate-900 border-slate-800">
+        <Card className="bg-card border-border">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-slate-100">Movimientos Detallados de Buques</CardTitle>
+              <CardTitle className="text-foreground">Movimientos Detallados de Buques</CardTitle>
               <Button variant="outline" size="sm">
                 <Download className="w-4 h-4 mr-2" />
                 Exportar
@@ -375,26 +378,26 @@ export default function ShipsReportPage() {
           <CardContent>
             <Table>
               <TableHeader>
-                <TableRow className="border-slate-800">
-                  <TableHead className="text-slate-300">Buque</TableHead>
-                  <TableHead className="text-slate-300">Tipo de Buque</TableHead>
-                  <TableHead className="text-slate-300">Tipo de Carga</TableHead>
-                  <TableHead className="text-slate-300">Puerto</TableHead>
-                  <TableHead className="text-slate-300">Volumen (T)</TableHead>
-                  <TableHead className="text-slate-300">Destino</TableHead>
-                  <TableHead className="text-slate-300">Fecha</TableHead>
+                <TableRow className="border-border">
+                  <TableHead className="text-foreground">Buque</TableHead>
+                  <TableHead className="text-foreground">Tipo de Buque</TableHead>
+                  <TableHead className="text-foreground">Tipo de Carga</TableHead>
+                  <TableHead className="text-foreground">Puerto</TableHead>
+                  <TableHead className="text-foreground">Volumen (T)</TableHead>
+                  <TableHead className="text-foreground">Destino</TableHead>
+                  <TableHead className="text-foreground">Fecha</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {shipMovements.map((movement, index) => (
-                  <TableRow key={index} className="border-slate-800 hover:bg-slate-800/50">
-                    <TableCell className="text-slate-100 font-medium">{movement.ship}</TableCell>
-                    <TableCell className="text-slate-300">{movement.type}</TableCell>
-                    <TableCell className="text-slate-300">{movement.cargo}</TableCell>
-                    <TableCell className="text-slate-300">{movement.port}</TableCell>
-                    <TableCell className="text-slate-300">{movement.volume.toLocaleString()}</TableCell>
-                    <TableCell className="text-slate-300">{movement.destination}</TableCell>
-                    <TableCell className="text-slate-300">{movement.date}</TableCell>
+                  <TableRow key={index} className="border-border hover:bg-card/50">
+                    <TableCell className="text-foreground font-medium">{movement.ship}</TableCell>
+                    <TableCell className="text-foreground">{movement.type}</TableCell>
+                    <TableCell className="text-foreground">{movement.cargo}</TableCell>
+                    <TableCell className="text-foreground">{movement.port}</TableCell>
+                    <TableCell className="text-foreground">{movement.volume.toLocaleString()}</TableCell>
+                    <TableCell className="text-foreground">{movement.destination}</TableCell>
+                    <TableCell className="text-foreground">{movement.date}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
